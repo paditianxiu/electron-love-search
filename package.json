@@ -1,0 +1,66 @@
+{
+  "name": "electron-love-search",
+  "private": true,
+  "version": "0.0.0",
+  "main": "./src-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "electron:build": "vite build && electron-builder"
+  },
+  "dependencies": {
+    "artplayer": "^5.2.1",
+    "axios": "^1.7.7",
+    "element-plus": "^2.8.8",
+    "hls.js": "^1.5.17",
+    "mdui": "^2.1.3",
+    "vue": "^3.5.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.4",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "electron-devtools-installer": "^3.2.0",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.10",
+    "vite-plugin-electron": "^0.28.8",
+    "vue-tsc": "^2.1.8"
+  },
+  "build": {
+    "productName": "爱搜片",
+    "appId": "com.padi.love.search",
+    "copyright": "帕帝 © 2024",
+    "compression": "maximum",
+    "asar": true,
+    "directories": {
+      "output": "release/"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true,
+      "deleteAppDataOnUninstall": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "爱搜片"
+    },
+    "win": {
+      "icon": "./public/logo.ico",
+      "artifactName": "${productName}-v${version}-${platform}-setup.${ext}",
+      "target": [
+        {
+          "target": "nsis"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "./public/logo.ico",
+      "artifactName": "${productName}-v${version}-${platform}-setup.${ext}"
+    },
+    "linux": {
+      "icon": "./public/logo.ico",
+      "artifactName": "${productName}-v${version}-${platform}-setup.${ext}"
+    }
+  }
+}
